@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection Points - login</title>
+    <link rel="stylesheet" href="../assets/css/common/reset.css">
+    <link rel="stylesheet" href="../assets/css/common/layout.css">
+    <link rel="stylesheet" href="../assets/css/login/login.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-text-container">
+                <p>Collection Points.</p>
+            </div>
+            <div class="header-icon-container">
+                <a href="https://github.com/kauanrossii/collection-points">
+                    <img src="../assets/images/github-mark.png" alt="Github Icon">
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="login-container">
+            <div class="login-container-header">
+                <h2>Collection Points - Login</h2>
+            </div>
+            <div class="login-container-main">
+                <form action="/login" method="POST">
+                    <div class="form-group">
+                        <label for="username">Usuário:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="login-button">Entrar</button>
+                </form>
+            </div>
+            <div class="login-container-footer">
+                <p>Não possui uma conta?</p>
+                <a href="../register/">Cadastre-se</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+        </div>
+    </footer>
+</body>
+</html>

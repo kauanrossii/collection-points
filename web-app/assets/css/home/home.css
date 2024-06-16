@@ -1,0 +1,59 @@
+:root {
+    --text: #000000;
+    --background: #f8f8f8;
+    --primary: #23e461;
+    --secondary: #7ac3ef;
+    --accent: #7df15a;
+}
+
+.content-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+}
+
+.hello-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.hello-text-container h1 {
+    font-size: 50px;
+}
+
+.hello-text-container h2 {
+    font-size: 20px;
+}
+
+
+.header-button-container {
+
+}
+
+.login-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #000000;
+    background-color: #23e461; /* Cor primária do botão */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #1cbf50; /* Cor um pouco mais escura para o hover */
+}
+
+.hello-image-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
