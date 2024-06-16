@@ -1,0 +1,53 @@
+/* styles.css */
+
+:root {
+    --text: #000000;
+    --background: #f8f8f8;
+    --primary: #23e461;
+    --secondary: #7ac3ef;
+    --accent: #7df15a;
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    height: 100%;
+}
+
+.side-bar-container {
+    background-color: var(--primary); /* Cor de fundo da sidebar */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    display: flex; /* Utiliza flexbox para alinhar o ícone e o texto */
+    align-items: center; /* Centraliza verticalmente os itens */
+    color: var(--background); /* Cor do texto da sidebar */
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a .icon {
+    width: 20px; /* Largura do ícone */
+    height: 20px; /* Altura do ícone */
+    margin-right: 10px; /* Espaçamento à direita do ícone */
+    background-size: cover; /* Ajusta o tamanho do ícone */
+    background-position: center; /* Centraliza o ícone */
+}
+
+.sidebar ul li a:hover {
+    background-color: var(--secondary); /* Cor um pouco mais escura para o hover */
+}
