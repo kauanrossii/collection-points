@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:16.2-alpine
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD_SHELL", "pg_isready -d ${DB_DATABASE} -U ${DB_USERNAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    environemnt:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+
+    server:
+      build: ./api
+      depends_on:
+        postgres:
+          condition: service_healthy
+      ports:
+        - "3000:3000"
+      command: npm start
