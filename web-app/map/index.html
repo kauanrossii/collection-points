@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../assets/css/common/reset.css">
     <link rel="stylesheet" href="../assets/css/common/layout.css">
     <link rel="stylesheet" href="../assets/css/collections/collections.css">
-    <link rel="stylesheet" href="styles.css"> <!-- Arquivo CSS personalizado para esta página -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet"
@@ -41,40 +40,17 @@
                 <nav class="sidebar">
                     <ul>
                         <li><a href="#" id="link-map"><span class="material-symbols-outlined">public</span>Mapa</a></li>
-                        <li><a href="#" id="link-organizations"><span class="material-symbols-outlined">corporate_fare</span>Organizações</a></li>
-                        <li><a href="#" id="link-collection-points"><span class="material-symbols-outlined">inventory_2</span>Pontos de coleta</a></li>
+                        <li><a href="../organization/index.html" id="link-organizations"><span class="material-symbols-outlined">corporate_fare</span>Organizações</a></li>
+                        <li><a href="../collection-point/index.html" id="link-collection-points"><span class="material-symbols-outlined">inventory_2</span>Pontos de coleta</a></li>
                         <li><a href="#" id="link-profile"><span class="material-symbols-outlined">person</span>Perfil</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="main-content-container">
                 <div id="map"></div>
-                
-                <div id="organizations">
-                    <div id="row-organization-add">
-                        <button>ORGANIZATION</button>
-                    </div>
-                    <ul id="organizations-list">
-                    </ul>
-                </div>
-                
-                <div id="collection-points">
-                    <div id="row-collection-points-add">
-                        <button>COLLECTION-POINT</button>
-                    </div>
-                    <ul id="collection-points-list">
-                        
-                    </ul>
-                </div>
-
             </div>
         </div>
     </main>
-    <footer>
-        <div class="footer-container">
-        </div>
-    </footer>
-    <script src="../assets/js/collection/collection.js"></script>
+    <script src="../assets/js/map/map.js"></script>
 </body>
-
 </html>

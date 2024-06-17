@@ -57,24 +57,19 @@
     height: 100%;
 }
 
-#organizations {
+#content-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 10px;
 }
 
-#row-organization-add {
+#row-content-add {
     display: flex;
     justify-content: end;
 }
 
-#organizations-list li {
-    display: flex;
-    flex-direction: row;
-}
-
-#organization-card-container {
+/* .card-container {
     display: flex;
     text-align: center;
 
@@ -85,20 +80,32 @@
 
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+} */
+
+/* #organizations-table {
+    width: 90%;
+} */
+
+body {
+    font-family: Arial, sans-serif;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
 
-#organization-text {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    text-align: center;
-    align-items: center;
-    width: 80%;
-}
-
-#organization-actions {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    text-align: center;
-    align-items: center;
-    gap: 10px;
+.actions-column {
+    width: 15%;
 }
