@@ -1,6 +1,10 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
 import { Organization } from "./organization/entity/organization.entity"
+import { configDotenv } from "dotenv"
+import { CollectionPoint } from "./collection-point/entity/collection-point.entity";
+
+configDotenv({ path: "./.env"});
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -10,5 +14,5 @@ export const AppDataSource = new DataSource({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
     synchronize: true,
-    entities: [Organization]
+    entities: [Organization, CollectionPoint]
 })

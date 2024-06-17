@@ -1,11 +1,15 @@
-import { Repository } from "typeorm";
-import { BaseRepository } from "../common/base.repository";
+import { TYPES } from "../common/util/di/di-types";
+import { BaseRepository, IBaseRepository } from "../common/base.repository";
 import { Organization } from "./entity/organization.entity";
+import { inject, injectable } from "inversify";
 
-interface IOrganizationRepository {}
+interface IOrganizationRepository extends IBaseRepository<Organization> {}
 
+@injectable()
 class OrganizationRepository extends BaseRepository<Organization> implements IOrganizationRepository {
-    private readonly _repository: Repository<Organization>;
+    constructor(@inject(TYPES.Organization) entityClass: { new (): Organization }) {
+        super(entityClass);
+    }
 }
 
 export { IOrganizationRepository, OrganizationRepository };
