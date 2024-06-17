@@ -21,6 +21,12 @@ export class CollectionPoint extends BaseEntity {
     @Column()
     zipCode: string;
 
+    @Column()
+    x: string;
+
+    @Column()
+    y: string;
+
     @Column({ type: "enum", enum: DonationsCategory, array: true })
     donationCategories: DonationsCategory[]
 }
