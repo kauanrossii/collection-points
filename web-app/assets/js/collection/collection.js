@@ -1,4 +1,4 @@
-var map = L.map('map').setView([-23.4251,-51.9382], 12);
+var map = L.map('map').setView([-23.4251, -51.9382], 12);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -13,3 +13,28 @@ var marker5 = L.marker([-23.4500, -51.9300]).addTo(map).bindPopup('Esperança Vi
 var marker6 = L.marker([-23.4000, -51.9300]).addTo(map).bindPopup('Sorriso Solidário');
 var marker7 = L.marker([-23.4300, -51.9600]).addTo(map).bindPopup('Paz e Bem');
 var marker8 = L.marker([-23.4100, -51.9525]).addTo(map).bindPopup('Casa da Fraternidade');
+
+const organizationLink = document.querySelector("#link-organizations");
+const collectionsPointsLink = document.querySelector("#link-collection-points");
+const mapLink = document.querySelector("#link-map");
+
+const mapContainer = document.querySelector("#map");
+const collectionPointsContainer = document.querySelector("#collection-points");
+const organizationsContainer = document.querySelector("#organizations");
+
+const contentContainers = [mapContainer, collectionPointsContainer, organizationsContainer];
+const contentLinks = [organizationLink, collectionsPointsLink, mapLink];
+
+let activeContainer = mapContainer;
+
+contentLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+        contentContainers.forEach(c => c.style.display = 'none');
+
+        const selectedContent = e.target.id.replace("link-", "");
+        const contentContainer = document.querySelector("#" + selectedContent);
+    
+        activeContainer = contentContainer;
+        activeContainer.style.display = 'flex';
+    })
+});
