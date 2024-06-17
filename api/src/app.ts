@@ -1,8 +1,8 @@
 import express from "express"
 import { IOrganizationController } from "./organization/organization.controller";
 import { Container } from "inversify";
-import { configureDependencyContainer } from "./api/util/di/di-configure";
-import { TYPES } from "./api/util/di/di-types";
+import { configureDependencyContainer } from "./common/util/di/di-configure";
+import { TYPES } from "./common/util/di/di-types";
 import { configureOrganizationRoutes } from "./organization/organization.routes";
 import { ICollectionPointController } from "./collection-point/collection-point.controller";
 import { configureCollectionPointRoutes } from "./collection-point/collection-point.routes";

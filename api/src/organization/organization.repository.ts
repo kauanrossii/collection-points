@@ -1,4 +1,4 @@
-import { TYPES } from "../api/util/di/di-types";
+import { TYPES } from "../common/util/di/di-types";
 import { BaseRepository, IBaseRepository } from "../common/base.repository";
 import { Organization } from "./entity/organization.entity";
 import { inject, injectable } from "inversify";

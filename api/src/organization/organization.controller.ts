@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { IOrganizationService } from "./organization.service";
 import { inject, injectable } from "inversify";
-import { TYPES } from "../api/util/di/di-types";
+import { TYPES } from "../common/util/di/di-types";
 import { Organization } from "./entity/organization.entity";
 
 interface IOrganizationController {
@@ -44,7 +44,6 @@ class OrganizationController implements IOrganizationController {
         await this.organizationService.update(organization);
         return res.status(204).json();
     }
-    
 }
 
 export { IOrganizationController, OrganizationController };

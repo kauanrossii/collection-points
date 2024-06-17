@@ -1,7 +1,7 @@
 import { inject, injectable } from "inversify";
 import { BaseRepository, IBaseRepository } from "../common/base.repository";
 import { CollectionPoint } from "./entity/collection-point.entity";
-import { TYPES } from "../api/util/di/di-types";
+import { TYPES } from "../common/util/di/di-types";
 
 interface ICollectionPointRepository extends IBaseRepository<CollectionPoint> {}
 

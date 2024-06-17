@@ -1,6 +1,6 @@
 import { inject, injectable } from "inversify";
 import { CollectionPoint } from "./entity/collection-point.entity";
-import { TYPES } from "../api/util/di/di-types";
+import { TYPES } from "../common/util/di/di-types";
 import { ICollectionPointRepository } from "./collection-point.repository";
 
 interface ICollectionPointService {
