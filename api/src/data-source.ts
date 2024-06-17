@@ -4,7 +4,7 @@ import { Organization } from "./organization/entity/organization.entity"
 import { configDotenv } from "dotenv"
 
 configDotenv({ path: "./.env"})
-
+console.log(process.env)
 export const AppDataSource = new DataSource({
     type: "postgres",
     host:  process.env.DB_HOST,
