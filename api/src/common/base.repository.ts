@@ -13,7 +13,7 @@ interface IBaseRepository<T extends BaseEntity> {
 
 @injectable()
 abstract class BaseRepository<T extends BaseEntity> implements IBaseRepository<T> {
-    private readonly repository: Repository<T>;
+    public readonly repository: Repository<T>;
 
     constructor(entityClass: new () => T) {
         this.repository = AppDataSource.getRepository(entityClass);

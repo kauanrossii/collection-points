@@ -39,12 +39,15 @@ class CollectionPointController implements ICollectionPointController {
     }
 
     async update(req: Request, res: Response) {
-        const organization = Object.assign({}, {
-            id: req.params.id,
-            name: req.body.name,
-            cnpj: req.body.cnpj,
-        }) as unknown as CollectionPoint;
-        await this._collectionPointService.update(organization);
+        console.log(req.body);
+        // const organization = Object.assign({}, {
+        //     id: req.params.id,
+        //     state: req.body.state,
+        //     street: req.body.street,
+        //     city: req.body.city,
+        //     zipCode: req.body.zipCode,
+        // }) as unknown as CollectionPoint;
+        // await this._collectionPointService.update(organization);
         return res.status(204).json();
     }
 }

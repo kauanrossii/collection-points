@@ -30,7 +30,9 @@ class CollectionPointService implements ICollectionPointService {
     }
 
     async findAll(): Promise<CollectionPoint[]> {
-        return await this._collectionPointRepository.findAll();
+        const all = await this._collectionPointRepository.findAll(); 
+        console.log(all);
+        return all;
     }
 }
 
