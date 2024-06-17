@@ -28,13 +28,47 @@ const contentLinks = [organizationLink, collectionsPointsLink, mapLink];
 let activeContainer = mapContainer;
 
 contentLinks.forEach((link) => {
-    link.addEventListener("click", (e) => {
+    link.addEventListener("click", async (e) => {
         contentContainers.forEach(c => c.style.display = 'none');
 
         const selectedContent = e.target.id.replace("link-", "");
+
+        switch (selectedContent) {
+            case "collection-points":
+                await listCollectionPoints();
+                break;
+            default:
+                break;
+        }
         const contentContainer = document.querySelector("#" + selectedContent);
     
         activeContainer = contentContainer;
         activeContainer.style.display = 'flex';
     })
 });
+
+async function listCollectionPoints() {
+    const response = await fetch("http://localhost:3000/collection-point");
+    const json = await response.json();
+
+    console.log(json)
+}
+
+function openCollectionPointDialog() {
+    const dialog = document.querySelector("#add-item-dialog");
+    dialog.setAttribute("open", "true");
+    dialog.style.display = 'flex';
+}
+
+function closeDialog(event) {
+    event.preventDefault();
+    const dialog = document.querySelector("#add-item-dialog");
+    dialog.style.display = 'none';
+}
+
+function addCollectionPoint(event) {
+    event.preventDefault();
+
+    const formElement = document.querySelector("#collection-points-form");
+    const formData = new FormData(formElement);
+}

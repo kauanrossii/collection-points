@@ -56,3 +56,51 @@
     width: 100%;
     height: 100%;
 }
+
+#add-item-dialog {
+    margin: auto;
+    display: none;
+    border: 2px solid #1eca55;
+    border-radius: 5px;
+}
+
+#collection-points-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* grid-template-columns: ; */
+    /* flex-direction: column; */
+    gap: 15px;
+}
+
+.field-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#collection-points {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#row-collection-points-add {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#row-collection-points-add button {
+    margin-right: 20px;
+    background-color: #23e461;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#row-collection-points-add button:hover {
+    background-color: #1eca55;
+}
