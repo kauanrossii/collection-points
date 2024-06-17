@@ -15,6 +15,7 @@ class App {
 
     public constructor() {
         this.express = express();
+        this.configureCors();
         this.container = new Container({ defaultScope: "Request"});
         configureDependencyContainer(this.container);
         this._organizationController = this.container.get<IOrganizationController>(TYPES.IOrganizationController);
@@ -30,6 +31,11 @@ class App {
     private routes(): void {
         configureOrganizationRoutes(this.express, this._organizationController);
         configureCollectionPointRoutes(this.express, this._collectionPointController);
+    }
+
+    private configureCors() {
+        const cors = require("cors");
+        this.express.use(cors());
     }
 }
 
