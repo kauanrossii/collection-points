@@ -3,5 +3,7 @@ export const TYPES = {
 
     IOrganizationService: Symbol.for("IOrganizationService"),
 
-    IOrganizationController: Symbol.for("IOrganizationController")
+    IOrganizationController: Symbol.for("IOrganizationController"),
+
+    Organization: Symbol.for("Organization")
 }

@@ -3,6 +3,7 @@ import { IOrganizationController } from "./organization/organization.controller"
 import { Container } from "inversify";
 import { configureDependencyContainer } from "./api/util/di/di-configure";
 import { TYPES } from "./api/util/di/di-types";
+import { configureOrganizationRoutes } from "./organization/organization.router";
 
 class App {
     public express: express.Application;
@@ -15,6 +16,7 @@ class App {
         configureDependencyContainer(this.container);
         this._organizationController = this.container.get<IOrganizationController>(TYPES.IOrganizationController);
         this.middleware();
+        this.routes();
     }
 
     private middleware(): void {
@@ -22,7 +24,7 @@ class App {
     }
 
     private routes(): void {
-
+        configureOrganizationRoutes(this.express, this._organizationController);
     }
 }
 

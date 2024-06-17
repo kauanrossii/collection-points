@@ -1,7 +1,9 @@
-import { Router } from "express";
-import { OrganizationController } from "./organization.controller";
-import { OrganizationService } from "./organization.service";
-import { OrganizationRepository } from "./organization.repository";
+import { Application } from "express";
+import { IOrganizationController } from "./organization.controller";
 
-
-const organizationRouter = Router();
+export function configureOrganizationRoutes(app: Application, organizationController: IOrganizationController) {
+    app.post('/organization', organizationController.create);
+    app.put('/organization/:id', organizationController.update);
+    app.get('/organization', organizationController.findAll);
+    app.delete('/organization/:id', organizationController.delete);
+}

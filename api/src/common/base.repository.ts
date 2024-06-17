@@ -1,17 +1,23 @@
 import { FindOptionsWhere, Repository } from "typeorm"
 import { BaseEntity } from "./base.entity";
 import { QueryDeepPartialEntity } from "typeorm/query-builder/QueryPartialEntity";
-
-interface IRepositoryBase<T extends BaseEntity> {
+import { injectable } from "inversify";
+import { AppDataSource } from "../data-source";
+interface IBaseRepository<T extends BaseEntity> {
     findById(id: number): Promise<T>;
     findAll(): Promise<T[]>;
-    create(data: T);
+    create(data: T): Promise<number>;
     update(id: number, data: QueryDeepPartialEntity<T>);
     delete(id: number): Promise<void>;
 }
 
-export abstract class BaseRepository<T extends BaseEntity> implements IRepositoryBase<T> {
-    constructor(private readonly repository: Repository<T>) {}
+@injectable()
+abstract class BaseRepository<T extends BaseEntity> implements IBaseRepository<T> {
+    private readonly repository: Repository<T>;
+
+    constructor(entityClass: new () => T) {
+        this.repository = AppDataSource.getRepository(entityClass);
+    }
 
     async findAll(): Promise<T[]> {
         return this.repository.find();
@@ -22,7 +28,8 @@ export abstract class BaseRepository<T extends BaseEntity> implements IRepositor
     }
 
     public create = async (data: T) => {
-        return await this.repository.save(data);
+        const entity = await this.repository.save(data);
+        return entity.id;
     }
 
     async update(id: number, data: QueryDeepPartialEntity<T>) {
@@ -33,3 +40,5 @@ export abstract class BaseRepository<T extends BaseEntity> implements IRepositor
         await this.repository.delete(id);
     }
 }
+
+export { IBaseRepository, BaseRepository };

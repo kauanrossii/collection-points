@@ -8,10 +8,4 @@ export class Organization extends BaseEntity {
 
     @Column()
     cnpj: string;
-
-    public constructor(name: string, cnpj: string) {
-        super();
-        this.name = name;
-        this.cnpj = cnpj;
-    }
 }
