@@ -36,5 +36,57 @@ contentLinks.forEach((link) => {
     
         activeContainer = contentContainer;
         activeContainer.style.display = 'flex';
+
+        if (e.target.id == "link-organizations") {
+            getOrganizations();
+        }
     })
 });
+
+function createOrganization(organization) {
+    const liOrganization = document.createElement("li");
+    const name = document.createElement("h2");
+    const cnpj = document.createElement("p")
+
+    name.textContent = organization.name;
+    cnpj.textContent = organization.cnpj;
+
+    const divOrganization = document.createElement("div");
+    const divOrganizationText = document.createElement("div");
+    const divOrganizationActions = document.createElement("div");
+
+    divOrganizationText.appendChild(name);
+    divOrganizationText.appendChild(cnpj);
+    divOrganizationText.setAttribute("id", "organization-text")
+
+    const createButton = document.createElement("button");
+    const editButton = document.createElement("button");
+    const deleteButton = document.createElement("button");
+
+    divOrganizationActions.appendChild(createButton);
+    divOrganizationActions.appendChild(editButton);
+    divOrganizationActions.appendChild(deleteButton);
+    divOrganizationActions.setAttribute("id", "organization-actions")
+
+
+    divOrganization.appendChild(divOrganizationText);
+    divOrganization.appendChild(divOrganizationActions);
+    divOrganization.setAttribute("id", "organization-card-container")
+
+    liOrganization.appendChild(divOrganization);
+    return liOrganization;
+}
+
+async function getOrganizations() {
+    const organizationList = document.querySelector("#organizations-list");
+    const url = "http://localhost:3000/organization";
+    const response = await fetch(url);
+    const organizationsData = await response.json();
+  
+    organizationList.innerHTML = '';
+
+    organizationsData.forEach(organization => {
+      const li = createOrganization(organization);
+      organizationList.appendChild(li);
+    });
+  }
