@@ -20,49 +20,14 @@ main {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 300px;
-}
-
-.login-container-header {
-    color: var(--text);
-    margin-bottom: 20px;
-    border-bottom: 1px solid #1cbf50;
-}
-
-.login-container-header h2 {
-    color: var(--text);
-    margin-bottom: 10px;
-}
-
-.login-container-footer {
-    font-size: 12px;
-    margin-top: 10px;
+    width: 90%;
+    height: 90%;
 }
 
 .login-container-footer a {
     color: var(--primary);
     font-weight: bold;
     text-decoration: underline;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    text-align: left;
-    margin-bottom: 5px;
-    color: #333333; /* Cor do texto das labels */
-}
-
-.form-group input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #cccccc;
-    border-radius: 3px;
-    box-sizing: border-box;
-    font-size: 14px;
 }
 
 .login-button {
@@ -100,13 +65,30 @@ main {
     background-color: #1cbf50; /* Cor um pouco mais escura para o hover */
 }
 
-.requisitos-para-nerds {
-    display: flex;
-    justify-content: center;
-    font-size: 13px;
-    margin-bottom: 13px;
+.automaton-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
 }
 
-.requisitos-para-nerds a {
-    color: red;
+.automaton-login, .automaton-password {
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+}
+
+.automaton-login-title, .automaton-password-title {
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.automaton-login-title p, .automaton-password-title p{
+    font-size: 11px;
+    margin-top: 2px;
+}
+
+.automaton-login-diagram, .automaton-password-diagram {
+    height: 20vh;
+    width: 100%;
+    margin-bottom: 10px;
 }
